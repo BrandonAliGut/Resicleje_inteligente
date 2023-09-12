@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "resiclejeinteligente"
+version = "0.1.0"
+description = "esta es una app de resiclaje"
+authors = ["Brandon <bg4710699@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10.9"
+django-cors-headers = "^4.2.0"
+django = "^4.2.5"
+gunicorn = "^21.2.0"
+whitenoise = {extras = ["brotli"], version = "^6.5.0"}
+
+
