@@ -11,9 +11,15 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -62,6 +68,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'primerProducto01.urls'
+
+ORS_ALLOW_ALL_ORIGINS = True
+'''CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+]'''
 
 TEMPLATES = [
     {
@@ -158,6 +169,14 @@ REST_FRAMEWORK = {
 
 #class auth model user in admin django 
 
+CLOUDINARY_URL='cloudinary://551349866744225:D5ptwLUnAc3PBaFQZelzMhxG640@dfzdi48yx'
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+cloudinary.config( 
+  cloud_name = "dfzdi48yx", 
+  api_key = "551349866744225", 
+  api_secret = "D5ptwLUnAc3PBaFQZelzMhxG640" 
+)
 
 
 AUTH_USER_MODEL = "User_admin.User_models"

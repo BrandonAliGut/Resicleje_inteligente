@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import status, filters
 from rest_framework import viewsets
-from rest_framework.authentication import TokenAuthentication
+
 from .models import User_models
 
 from rest_framework.authtoken.views import ObtainAuthToken
@@ -20,7 +20,7 @@ from django.contrib.auth import authenticate,login
 
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication,TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
+
 from rest_framework.views import APIView
 
 class UserViewset(viewsets.ModelViewSet):
