@@ -34,8 +34,8 @@ class UserViewset(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         
-        user = serializer.validated_data['user']
-        password=serializer.validated_data['password']
+        #user = serializer.validated_data['user']
+        #password=serializer.validated_data['password']
         
         
 
