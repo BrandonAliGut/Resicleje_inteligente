@@ -93,6 +93,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'primerProducto01.wsgi.application'
 
 
+
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -103,6 +105,10 @@ DATABASES = {
     }
 }
 
+
+import dj_database_url
+#database_url = 'postgres://aplicacionregistroprueva_user:u7ea9kMsJtLhjMNySlp10imyHPTJrjgk@dpg-cje55u8cfp5c73ahp7r0-a.oregon-postgres.render.com/aplicacionregistroprueva'
+#DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
