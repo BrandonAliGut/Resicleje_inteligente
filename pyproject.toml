@@ -12,5 +12,6 @@ django = "^4.2.5"
 gunicorn = "^21.2.0"
 whitenoise = {extras = ["brotli"], version = "^6.5.0"}
 djangorestframework = "^3.14.0"
+cloudinary = "^1.34.0"
 
 
