@@ -106,6 +106,8 @@ DATABASES = {
 }
 
 
+
+
 import dj_database_url
 database_url = 'postgres://default:JvOKB87CFcXP@ep-delicate-bush-24516146-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb'
 DATABASES['default'] = dj_database_url.parse(database_url)
@@ -131,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 from datetime import timedelta
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=12),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     }
 

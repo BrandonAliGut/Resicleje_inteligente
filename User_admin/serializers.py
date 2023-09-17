@@ -27,13 +27,17 @@ class User_serializar(serializers.ModelSerializer):
             password = validated_data['password'],
             
         )
+        try:
+            roll=Group.objects.get(name='Invitado')
+            
+        except Group.DoesNotExist:
+            roll = Group.objects.create(name='Invitado')
         
-        group=Group.objects.get(name='user')
-        group.user_set.add(user)
-        
+        user.groups.add(roll)
        
         
         return user
+    
     def update(self, instance, validated_data):
         if 'password' in validated_data:
             password = validated_data.pop(password)

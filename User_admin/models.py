@@ -4,6 +4,7 @@ from django.contrib.auth.models import Group
 
 
 
+
 class MyUserManager(BaseUserManager):
     def create_user(self, email,name, last_name, password=None):
         """
@@ -53,7 +54,6 @@ class User_models(AbstractBaseUser,PermissionsMixin):
     is_admin = models.BooleanField(default=False)
 
     objects = MyUserManager()
-
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["name","last_name",]
 

@@ -29,7 +29,7 @@ class UserViewset(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, )
     permission_classes = (UpdateOwnProfile,)
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('last_name','email','name')
+    search_fields = ('last_name','email','name','groups')
     
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -64,6 +64,13 @@ class UserLoginApiView(ObtainAuthToken):
         user_autheticated = authenticate(request,username=user, password=password)
         if user is not None:
             login(request, user_autheticated)
+        from django.core import serializers as serial
+        roll=user.groups.all()
+        import json
+        roll_json = []
+        for roll in roll:
+            roll_json.append({str(roll.id):str(roll.name)})
+            
         
         return Response({
             'user':  {
@@ -71,6 +78,7 @@ class UserLoginApiView(ObtainAuthToken):
                 'email':user.email,
                 'name': user.name,
                 'last_name':user.last_name,
+                'groups': roll_json
                 },
             'token': token.key
             })
@@ -81,25 +89,3 @@ class UserLoginApiView(ObtainAuthToken):
 
 
 
-
-
-class ExampleView(APIView):
-    
-    #SessionAuthentication : permite el pase si existe una cession activa : authentication_classes = [.. , SessionAuthentication]
-    
-    authentication_classes = [TokenAuthentication, BasicAuthentication, SessionAuthentication]
-    permission_classes = [IsAuthenticated]
-    
-    def get(self, request, format=None):
-
-        #print(request.user.get_group_permissions())
-        if 'Api_Reciclaje_I.view_category' in request.user.get_group_permissions():
-            if request.user.is_authenticated:
-                content = {
-                    'user': str(request.user),  # `django.contrib.auth.User` instance.
-                    'auth': str(request.user.is_authenticated),  # None
-                }
-                return Response(content)
-        
-        return Response(data = { "detail": "not esta autorizado"}, status=400)
-            
