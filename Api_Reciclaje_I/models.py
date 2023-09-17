@@ -1,3 +1,4 @@
+from typing import Any
 from django.db import models
 from cloudinary.models import CloudinaryField
 import datetime
@@ -10,3 +11,5 @@ class Category(models.Model):
     information  = models.TextField()
     created_at = models.DateField(auto_created=True)
     update_at = models.DateField(default=datetime.datetime.now())
+    def __str__(self):
+        return self.name
