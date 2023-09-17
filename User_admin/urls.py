@@ -3,12 +3,12 @@ from .views import *
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register('profile', UserViewset)
+router.register('Register', UserViewset)
 
 urlpatterns = [
     path('', include(router.urls)),
     path('login/', UserLoginApiView.as_view()),
 ]
-#BrandonALi12
+#admin
 
-#BrandonALi12
+#Invitado_prueva

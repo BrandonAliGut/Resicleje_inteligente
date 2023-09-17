@@ -6,6 +6,6 @@ from rest_framework.routers import DefaultRouter
 router.register('api/Category', Category_Api, 'Category')"""
 
 urlpatterns = [
-    path('Category', Category_Api.as_view()), 
+    path('api/Category', Category_Api.as_view()), 
 ] 
 

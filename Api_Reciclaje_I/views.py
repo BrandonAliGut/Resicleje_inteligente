@@ -56,7 +56,7 @@ class Category_Api(APIView):
     
     
     def get(self, request, format=None):
-        self.check_permissions_roll(request, 'Api_Reciclaje_I.view_category' )
+        #self.check_permissions_roll(request, 'Api_Reciclaje_I.view_category' )
         items = Category.objects.all()
         serializer = SerializerCategoria(items, many=True)
         return Response(serializer.data)
