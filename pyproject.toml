@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "resiclejeinteligente"
-version = "0.1.0"
+version = "1.0.0"
 description = "esta es una app de resiclaje"
 authors = ["Brandon <bg4710699@gmail.com>"]
 readme = "README.md"
