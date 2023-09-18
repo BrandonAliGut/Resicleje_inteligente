@@ -29,7 +29,7 @@ class UserViewset(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, )
     permission_classes = (UpdateOwnProfile,)
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('last_name','email','name','groups')
+    
     
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
