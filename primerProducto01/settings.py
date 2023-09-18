@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'User_admin',
     'Api_Reciclaje_I',
+    'Frontend_resiclaje',
 ]
 
 MIDDLEWARE = [
