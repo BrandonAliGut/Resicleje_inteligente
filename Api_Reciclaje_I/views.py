@@ -95,7 +95,7 @@ class Category_Api(APIView):
     
         
         
-"""   
+  
         
 from django.shortcuts import render
 from rest_framework.response import Response
@@ -104,7 +104,7 @@ from rest_framework import status
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import requires_csrf_token
 from django.utils.decorators import method_decorator
-
+""" 
 
 from .models import *
 from .serializers import *
@@ -125,14 +125,15 @@ def categorylist(request, format= None):
             serializers.save()
             return Response(serializers.data, status= status.HTTP_201_CREATED)
         return Response(serializers.errors, status = status.HTTP_400_BAD_REQUEST)
-    
+"""
+
 @api_view(["GET", 'PUT', "DELETE"])
 @requires_csrf_token
 def categoria_detail(request, pk):
     try:
         model  = Category.objects.get(pk=pk)
     except Category.DoesNotExist:
-        return Response(status = status.HTTP_404_NOT_FOUND)
+        return Response(status = status.HTTP_204_NO_CONTENT)
     
     if request.method =='GET':
         serializers = SerializerCategoria(model)
@@ -147,4 +148,4 @@ def categoria_detail(request, pk):
     
     elif request.method =='DELETE':
         model.delete()
-        return Response(status= status.HTTP_204_NO_CONTENT)"""     
+        return Response(status= status.HTTP_204_NO_CONTENT)  

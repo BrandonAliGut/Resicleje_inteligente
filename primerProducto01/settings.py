@@ -109,9 +109,9 @@ DATABASES = {
 
 
 
-"""import dj_database_url
-database_url = 'postgres://default:JvOKB87CFcXP@ep-delicate-bush-24516146-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb'
-DATABASES['default'] = dj_database_url.parse(database_url)"""
+import dj_database_url
+database_url = "postgres://default:JvOKB87CFcXP@ep-delicate-bush-24516146.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
