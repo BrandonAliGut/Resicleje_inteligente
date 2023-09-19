@@ -4,8 +4,9 @@ from Api_Reciclaje_I.models import Category
 # Create your views here.
 from django.utils import timezone
 
-
-    
+def categoryView(request):
+    return render('Index.html')
+"""   
 class CategoryView(ListView):
     model = Category
      # su propio nombre para la lista como variable de plantilla
@@ -18,3 +19,4 @@ class CategoryView(ListView):
         # Add in a QuerySet of all the books
         context["category"] = Category.objects.all()
         return context
+        """ 
