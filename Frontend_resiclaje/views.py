@@ -8,7 +8,7 @@ from django.utils import timezone
 
 def categoryView(request):
     template = loader.get_template('base/HomeIndex.html')
-    print(template)
+   
     context = {
         
     }
