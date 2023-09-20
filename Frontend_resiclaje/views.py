@@ -5,7 +5,9 @@ from Api_Reciclaje_I.models import Category
 from django.utils import timezone
 
 def categoryView(request):
-    return render(request, 'Home/HomeIndex.html')
+    return render(request, 'base/HomeIndex.html')
+
+
 """   
 class CategoryView(ListView):
     model = Category
