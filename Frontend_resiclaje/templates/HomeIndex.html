@@ -100,6 +100,55 @@ https://templatemo.com/tm-555-upright
   
   background-size: cover;
 }
+.card-img1 {
+  height: 200px;
+   border-radius: 40px; position: absolute; min-width: 250px; 
+}
+
+.card-img2 {
+  width: 300px;  border-radius: 40px; z-index: 1;position: absolute;  left: 200px; bottom: -350px; min-width: 200px;
+}
+
+
+@media screen and (max-width: 887px){
+  .media_img{
+    
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -50px;
+    left: -30%;
+
+    
+  } 
+  }
+@media screen and (max-width: 509px){
+  .card-img1 {
+  width: 45%; border-radius: 60px; position: absolute; min-width: 250px; 
+  }
+  .media_img{
+    
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -50px;
+    left: -60%;
+
+    
+  } 
+  
+  .card-img2 {
+    width: 35%;  border-radius: 65px; z-index: 1;position: absolute;  left: 110px; bottom: -250px; min-width: 200px;
+  }
+  .textlader {
+    padding-top: 1px !important;
+    padding-bottom: 5px ;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+}
     </style>
 
     <div class="row">
@@ -147,6 +196,34 @@ https://templatemo.com/tm-555-upright
         </section>
       </div>
     </div>
+
+    <div class="container-sm mt-5 w-100 " >
+      <div class="row d-flex flex-row justify-content-center alig-items-center">
+        <div class="col-lg-6  " style="height: 300px;">
+          <div class="position-relative">
+
+            <div class="position-absolute top-0 start-0">
+              <img class="card-img1" src="{% static 'img/img (1).jpg' %}" alt="" >
+              <img class="card-img2 " src="{% static 'img/img (2).jpg' %}" alt="" >
+            
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="col-lg-6 col-lxx-12 d-flex justify-content-center  justify-content-center p-5">
+          <div class=" textlader h5 pt-3 pb-2 px-5 py-5   text-center ">En la actualidad reciclar forma parte de un grupo importante de empresas que realizan un manejo ético y responsable de sus procesos.</div>
+        </div>
+      </div>
+        
+
+      
+          
+      
+      </div>
+    </div>
+
+    
     
       
       
