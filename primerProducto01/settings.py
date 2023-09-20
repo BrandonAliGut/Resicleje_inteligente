@@ -75,6 +75,8 @@ ORS_ALLOW_ALL_ORIGINS = True
     'http://localhost:5173',
 ]'''
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
