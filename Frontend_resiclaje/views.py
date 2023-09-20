@@ -7,7 +7,8 @@ from Api_Reciclaje_I.models import Category
 from django.utils import timezone
 
 def categoryView(request):
-    template = loader.get_template('base/homeIndex.html')
+    template = loader.get_template('base/HomeIndex.html')
+    print(template)
     context = {
         
     }
