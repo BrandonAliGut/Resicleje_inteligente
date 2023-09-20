@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
+from django.http import HttpResponse
+from django.template import loader
 from Api_Reciclaje_I.models import Category
 # Create your views here.
 from django.utils import timezone
 
 def categoryView(request):
-    return render(request, 'base/homeIndex.html')
+    template = loader.get_template('base/homeIndex.html')
+    context = {
+        
+    }
+    return HttpResponse(template.render(context, request))
 
 
 """   
