@@ -118,6 +118,7 @@ background: #004800 ;
         width: 300px;
         height: 300px;
         border-radius: 100%;
+        left: -15%;
 
         background-image: url("{% static 'img/igor-son-FV_PxCqgtwc-unsplash.jpg' %}");
 
@@ -159,6 +160,21 @@ background: #004800 ;
         position: absolute;
         width: 100%;
         height: 100%;
+        left: -30%;
+       
+
+
+      }
+    }
+    
+    @media screen and (max-width: 770px) {
+      .media_img {
+
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: -5%;
        
 
 
@@ -179,7 +195,8 @@ background: #004800 ;
         position: absolute;
         width: 100%;
         height: 100%;
-        
+        left: -30%;
+
         z-index: 1;
 
 
@@ -203,7 +220,7 @@ background: #004800 ;
       }
     }
     .backgroun{
-          width: 100rem;
+          width: 100%;
           height: 300px;
       position: relative;
       background: url("{% static 'img/pec3b1a.jpg' %}" )no-repeat center;
@@ -231,7 +248,7 @@ background: #004800 ;
     .labelhome{
       
       display: flex;
-      position: fixed;
+      position: absolute;
       
       justify-content: center;
       justify-items: center;
@@ -314,7 +331,7 @@ background: #004800 ;
     <figure class="media_img">
     </figure>
     <div class="labelhome text-center">
-      <div class="h4 w-50 text-center textoe color">¡Bienvenidos al Futuro del Reciclaje!</div>
+      <div class="h2 w-50 textoe color">!Resiclaje Inteligente</div>
     </div>
     
     <div class="divPrueva2 efect_glass"></div>
