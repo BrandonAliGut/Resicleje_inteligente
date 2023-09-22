@@ -9,14 +9,10 @@
   <title>Upright</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <!--
+
+ 
 
     
-TemplateMo 555 Upright
-
-https://templatemo.com/tm-555-upright
-
--->
 </head>
 
 <body>
@@ -45,6 +41,12 @@ https://templatemo.com/tm-555-upright
     .banners{
 
 background: #004800 ;
+      
+
+}
+.carcontiner{
+
+height: 320px;
       
 
 }
@@ -201,6 +203,19 @@ background: #004800 ;
 
 
       }
+      .container_card{
+
+       
+        padding-top: 10px !important;
+      
+
+}
+      .carcontiner{
+
+height: 220px;
+      
+
+}
 
       .card-img2 {
         width: 35%;
@@ -326,7 +341,8 @@ background: #004800 ;
 
   </div>
 
-  <div class="backgroun " >
+<div class="w-100 pb-0">
+  <div class="col-12"><div class="backgroun " >
     
     <figure class="media_img">
     </figure>
@@ -335,12 +351,10 @@ background: #004800 ;
     </div>
     
     <div class="divPrueva2 efect_glass"></div>
-  </div>
-
-
-  <div class="container-fluid mt-5 w-100 ">
+  </div></div>
+ <div class="container-fluid mt-5 w-100 ">
     <div class="row d-flex flex-row justify-content-center alig-items-center">
-      <div class="col-lg-6  " style="height: 300px;">
+      <div class="col-lg-6 carcontiner " >
         <div class="position-relative">
 
           <div class="position-absolute top-0 start-0">
@@ -352,7 +366,7 @@ background: #004800 ;
 
       </div>
 
-      <div class="col-lg-6 col-lxx-12 d-flex justify-content-center  justify-content-center p-5">
+      <div class="col-lg-6 col-lxx-12 d-flex justify-content-center  justify-content-center px-5 py-5 pt-5 pb-1">
         <div class=" textlader h5 pt-3 pb-2 px-5 py-5   text-center ">En la actualidad reciclar forma parte de un grupo
           importante de empresas que realizan un manejo ético y responsable de sus procesos.</div>
       </div>
@@ -361,12 +375,58 @@ background: #004800 ;
 
 
 
-
   </div>
+  
+</div>
+
+  
+
+
+  
+
+  
+
+<div class="container container_card pt-1  ">
+
+  <div class="h3 pt-5 text-center">Desventajas de estos residuos</div>
+  <div id="carouselExampleInterval" class="carousel slide  " data-bs-ride="carousel">
+    
+    <div class=" w-100 carousel-inner p-5">
+
+
+      
+      <div class="carousel-item  active" data-bs-interval="2000">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 d-flex justify-content-center"><img src="{% static 'img/img (2).jpg' %}" class="d-flex w-50 rounded-5" alt="..." style="min-width: 300px; max-width: 500px;">
+          </div>
+          <div class="col-lg-6 align-self-start"><h5 class="card-title h4 mb-2 mt-3">Papel</h5>
+            <p class="card-text h5 pt-2  w-100">
+              Su proceso de fabricación, distribución y consumo implica la sobreexplotación de recursos naturales que son nocivos para la naturaleza.</p>
+          </div>
+        </div>
+        
+        
+        
+        
+      </div>
+      
+
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+    
+</div>
+  
 
-
-
+  
 
 
 
@@ -375,6 +435,7 @@ background: #004800 ;
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 </body>
 
 </html>
