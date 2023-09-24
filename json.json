@@ -2,7 +2,7 @@ https://resiclaje-inteligente-fhlb.onrender.com/api/categories/
 Get//
 HTTP 200 OK 
 Post:
-Post/ status.HTTP_201_CREATED
+Post/ HTTP 201 CREATED
 Put:
 
 status.HTTP_400_BAD_REQUEST
@@ -15,3 +15,7 @@ status.HTTP_400_BAD_REQUEST
     "update_at": "2023-09-17",
     "created_at": "2023-09-17"
 }
+
+https://resiclaje-inteligente-fhlb.onrender.com/auth/register/
+
+https://resiclaje-inteligente-fhlb.onrender.com/auth/login/
