@@ -70,8 +70,11 @@ class Category_Api(APIView):
         
         serializer = SerializerCategoria(data=post_data)
         serializer.is_valid(raise_exception=True)
-        self.check_permissions_roll(request, 'Api_Reciclaje_I.add_category' )
-        serializer.save()
+        permisos = self.check_permissions_roll(request, 'Api_Reciclaje_I.add_category' )
+                
+        if permisos:
+            serializer.save()
+            
         return Response(serializer.data, status=status.HTTP_201_CREATED)
         
     def check_permissions_roll(self, request, permissionuseroll):
@@ -86,6 +89,9 @@ class Category_Api(APIView):
                     message=getattr(permissionuseroll, 'message', None),
                     code=getattr(permissionuseroll, 'code', None)
                 )
+                return False
+            return False
+        return True
     
         
         
