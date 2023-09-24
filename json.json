@@ -2,7 +2,8 @@ https://resiclaje-inteligente-fhlb.onrender.com/api/categories/
 Get//
 HTTP 200 OK 
 Post:
-Post/ HTTP 201 CREATED
+HTTP 201 CREATED
+
 Put:
 
 status.HTTP_400_BAD_REQUEST
