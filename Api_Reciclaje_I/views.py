@@ -50,11 +50,7 @@ from .serializers import SerializerCategoria
 class Category_Api(APIView):
     
     #SessionAuthentication : permite el pase si existe una cession activa : authentication_classes = [.. , SessionAuthentication]
-    
-    """authentication_classes = [TokenAuthentication, BasicAuthentication, SessionAuthentication]
-    permission_classes = [IsAuthenticated]"""
-    
-    
+
     def get(self, request, format=None):
         #self.check_permissions_roll(request, 'Api_Reciclaje_I.view_category' )
         items = Category.objects.all()
