@@ -7,7 +7,7 @@ router.register('register', UserViewset)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('login/', UserLoginApiView.as_view()),
+    path('login', UserLoginApiView.as_view()),
 ]
 #admin
 
