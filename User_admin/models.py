@@ -48,7 +48,7 @@ class User_models(AbstractBaseUser,PermissionsMixin):
         unique=True,
     )
     name = models.CharField(max_length=50, verbose_name="name people")
-    last_name = models.CharField(max_length=50, verbose_name="last name people")
+    lastname = models.CharField(max_length=50, verbose_name="last name people")
     is_active = models.BooleanField(default=True)
     #is_staff=   models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
