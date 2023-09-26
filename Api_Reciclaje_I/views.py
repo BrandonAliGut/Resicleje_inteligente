@@ -1,52 +1,23 @@
 from django.shortcuts import render
-from rest_framework.permissions import IsAuthenticated
+
+#importaciones para vistas basadas en funciones
+from rest_framework.response import Response
+from django.contrib.auth.decorators import permission_required
+from rest_framework.decorators import api_view
+from rest_framework import status
+from django.views.decorators.csrf import requires_csrf_token
+
+
+
+#Importaciones para vistas basadas en clases
 from rest_framework.views import APIView
 from rest_framework import status
-
 from rest_framework.response import Response
-
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication,TokenAuthentication
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication,TokenAuthentication
-# Create your views here.
-class View_category(APIView):
-    
-    #SessionAuthentication : permite el pase si existe una cession activa : authentication_classes = [.. , SessionAuthentication]
-    
-    authentication_classes = [TokenAuthentication, BasicAuthentication, SessionAuthentication]
-    permission_classes = [IsAuthenticated]
-    
-    def get(self, request, format=None):
-        #print(request.user.get_group_permissions())
-        self.check_permissions_roll(request, 'Api_Reciclaje_I.view_category' )
-        
-        if request.user.is_authenticated:
-            content = {
-                'user': str(request.user),  # `django.contrib.auth.User` instance.
-                'auth': str(request.user.is_authenticated),  # None
-            }
-            return Response(content)
-        
-        
-        
-    def check_permissions_roll(self, request, permissionuseroll):
-        """
-        Check if the request should be permitted.
-        Raises an appropriate exception if the request is not permitted.
-        """
-        if not request.user.is_admin:
-            if not permissionuseroll in request.user.get_group_permissions() :
-                self.permission_denied(
-                    request,
-                    message=getattr(permissionuseroll, 'message', None),
-                    code=getattr(permissionuseroll, 'code', None)
-                )
-        
-            
-from rest_framework import viewsets
 from .models import Category
 from .serializers import SerializerCategoria
 
-"class Prueva(viewsets.ModelViewSet):"
+
+
 class Category_Api(APIView):
     
     #SessionAuthentication : permite el pase si existe una cession activa : authentication_classes = [.. , SessionAuthentication]
@@ -97,37 +68,12 @@ class Category_Api(APIView):
         
   
         
-from django.shortcuts import render
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from rest_framework import status
-from django.views.decorators.csrf import csrf_protect
-from django.views.decorators.csrf import requires_csrf_token
-from django.utils.decorators import method_decorator
-""" 
 
-from .models import *
-from .serializers import *
-# Create your views here.
-# Create your views here.
-@api_view(["GET", "POST"])
-@method_decorator(csrf_protect)
-@requires_csrf_token
-def categorylist(request, format= None):
-    if request.method =="GET":
-        model  = Category.objects.all()
-        serilzers = SerializerCategoria(model, many = True)
-        return Response(serilzers.data)
-    
-    elif request.method == "POST":
-        serializers = SerializerCategoria(data= request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status= status.HTTP_201_CREATED)
-        return Response(serializers.errors, status = status.HTTP_400_BAD_REQUEST)
-"""
+
+
 
 @api_view(["GET", 'PUT', "DELETE"])
+@permission_required("polls.add_choice")
 @requires_csrf_token
 def categoria_detail(request, pk):
     try:
