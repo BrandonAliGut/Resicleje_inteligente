@@ -6,7 +6,7 @@ from django.contrib.auth.models import Group
 
 
 class MyUserManager(BaseUserManager):
-    def create_user(self, email,name, last_name, password=None):
+    def create_user(self, email,name, lastname, password=None):
         """
         Creates and saves a User with the given email, date of
         birth and password.
@@ -17,14 +17,14 @@ class MyUserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             name = name,
-            last_name=last_name,
+            lastname=lastname,
         )
         
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email,name, last_name, password=None):
+    def create_superuser(self, email,name, lastname, password=None):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
@@ -33,7 +33,7 @@ class MyUserManager(BaseUserManager):
             email=email,
             password=password,
             name=name,
-            last_name=last_name,
+            lastname=lastname,
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -55,7 +55,7 @@ class User_models(AbstractBaseUser,PermissionsMixin):
 
     objects = MyUserManager()
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["name","last_name",]
+    REQUIRED_FIELDS = ["name","lastname",]
 
     def __str__(self):
         return self.email

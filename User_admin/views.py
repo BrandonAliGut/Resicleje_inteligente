@@ -5,10 +5,12 @@ from rest_framework import viewsets
 
 from .models import User_models
 
-from rest_framework.authtoken.views import ObtainAuthToken
+
 from rest_framework.settings import api_settings
 
 from .serializers import *
+from .tokenpermisos import ObtainAuthToken
+
 from .permissions import UpdateOwnProfile
 from django.contrib.auth import authenticate, login
 # Create your views here.
@@ -77,7 +79,7 @@ class UserLoginApiView(ObtainAuthToken):
                 'id': user.pk,
                 'email':user.email,
                 'name': user.name,
-                'last_name':user.last_name,
+                'lastname':user.lastname,
                 'groups': roll_json
                 },
             'token': token.key
