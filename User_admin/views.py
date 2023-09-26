@@ -39,8 +39,6 @@ class UserViewset(viewsets.ModelViewSet):
         #user = serializer.validated_data['user']
         #password=serializer.validated_data['password']
         
-        
-
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
@@ -80,6 +78,7 @@ class UserLoginApiView(ObtainAuthToken):
                 'email':user.email,
                 'name': user.name,
                 'lastname':user.lastname,
+                ''
                 'roles': roll_json
                 },
             'token': token.key

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import Group
+import datetime
 
 
 
@@ -52,6 +53,8 @@ class User_models(AbstractBaseUser,PermissionsMixin):
     is_active = models.BooleanField(default=True)
     #is_staff=   models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
+    created_at = models.DateField( auto_now_add=True, editable=False)
+    update_at = models.DateField(default=datetime.datetime.now())
 
     objects = MyUserManager()
     USERNAME_FIELD = "email"

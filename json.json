@@ -21,3 +21,46 @@ https://resiclaje-inteligente-fhlb.onrender.com/auth/register/
 https://resiclaje-inteligente-fhlb.onrender.com/auth/login/
 
 
+
+
+!json_data_model_category
+
+
+[
+    {
+        "id": 1,
+        "name": "Papel",
+        "img": "http://res.cloudinary.com/dfzdi48yx/image/upload/v1695694503/hkjzhmalogsu32yztetj.jpg",
+        "information": "Su proceso de fabricación, distribución y consumo implica la sobreexplotación de recursos naturales que son nocivos para la naturaleza.",
+        "update_at": "2023-09-25",
+        "created_at": "2023-09-26"
+    },
+    {
+        "id": 2,
+        "name": "Plástico",
+        "img": "http://res.cloudinary.com/dfzdi48yx/image/upload/v1695694540/a37oxivkpuyhubqfmwgg.jpg",
+        "information": "Una media de 8 millones de toneladas de plástico son vertidas cada año a los océanos, esto equivale a vaciar un camión de basura lleno de plásticos cada minuto.",
+        "update_at": "2023-09-25",
+        "created_at": "2023-09-26"
+    },
+    {
+        "id": 3,
+        "name": "Metales",
+        "img": "http://res.cloudinary.com/dfzdi48yx/image/upload/v1695694581/ey7m2fznu2xuxpsl0fok.jpg",
+        "information": "Cuando se abandonan metales tóxicos en el ambiente, contaminan el suelo y se acumulan en las plantas y los tejidos orgánicos.",
+        "update_at": "2023-09-25",
+        "created_at": "2023-09-26"
+    },
+    {
+        "id": 4,
+        "name": "Vidrio",
+        "img": "http://res.cloudinary.com/dfzdi48yx/image/upload/v1695694637/ijwkmyjw1srzgzce3gmm.jpg",
+        "information": "El vidrio es un material ecológico por naturaleza: es inerte, reciclable al 100% y al infinito, a condición de que no esté contaminado.",
+        "update_at": "2023-09-25",
+        "created_at": "2023-09-26"
+    }
+]
+
+
+
+
