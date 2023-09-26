@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 #importaciones para vistas basadas en funciones
 from rest_framework.response import Response
-from django.contrib.auth.decorators import permission_required
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.views.decorators.csrf import requires_csrf_token
@@ -26,11 +25,13 @@ class Category_Api(APIView):
         #self.check_permissions_roll(request, 'Api_Reciclaje_I.view_category' )
         items = Category.objects.all()
         serializer = SerializerCategoria(items, many=True)
+        
         return Response(serializer.data)
     
     
 
     def post(self, request, format=None):
+        
         
         post_data = {
             'name': request.data.get('name'),
@@ -42,7 +43,6 @@ class Category_Api(APIView):
         serializer = SerializerCategoria(data=post_data)
         serializer.is_valid(raise_exception=True)
         permisos = self.check_permissions_roll(request, 'Api_Reciclaje_I.add_category' )
-                
         if permisos:
             serializer.save()
             
@@ -68,14 +68,14 @@ class Category_Api(APIView):
         
   
         
-
+from django.shortcuts import render
 
 
 
 @api_view(["GET", 'PUT', "DELETE"])
-@permission_required("polls.add_choice")
 @requires_csrf_token
 def categoria_detail(request, pk):
+    print(request.user.get_group_permissions())
     try:
         model  = Category.objects.get(pk=pk)
     except Category.DoesNotExist:
