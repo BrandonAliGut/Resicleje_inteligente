@@ -32,6 +32,8 @@ class UserCreationForm(forms.ModelForm):
     def save(self, commit=True):
         # Save the provided password in hashed format
         user = super().save(commit=False)
+        import datetime
+        user.update_at = datetime.datetime.now()
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
@@ -64,7 +66,7 @@ class UserAdmin(BaseUserAdmin):
    
     fieldsets = [
         (None, {"fields": ["email", "password"]}),
-        ("Personal info", {"fields": ["name","lastname"]}),
+        ("Personal info", {"fields": ["name","lastname", "update_at"]}),
         ("Permissions", {
             "fields": (
                     "is_active",

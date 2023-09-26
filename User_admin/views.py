@@ -78,8 +78,9 @@ class UserLoginApiView(ObtainAuthToken):
                 'email':user.email,
                 'name': user.name,
                 'lastname':user.lastname,
-                ''
-                'roles': roll_json
+                'created_at':user.created_at,
+                'update_at':user.update_at,
+                'roles': roll_json,
                 },
             'token': token.key
             })
