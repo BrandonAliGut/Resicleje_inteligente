@@ -2,11 +2,13 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import Group
 import datetime
-
+import django.contrib.auth.password_validation as validators
 
 
 
 class MyUserManager(BaseUserManager):
+    
+        
     def create_user(self, email,name, lastname, password=None):
         """
         Creates and saves a User with the given email, date of
@@ -79,5 +81,6 @@ class User_models(AbstractBaseUser,PermissionsMixin):
         # Simplest possible answer: All admins are staff
         return self.is_admin
     class Meta:
-        
+        verbose_name = "User"
         verbose_name_plural = "Users"
+        

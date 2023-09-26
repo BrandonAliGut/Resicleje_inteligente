@@ -4,6 +4,9 @@ from rest_framework import status, filters
 from rest_framework import viewsets
 
 from .models import User_models
+from rest_framework.generics import UpdateAPIView
+
+from django.contrib.auth import get_user_model
 
 
 from rest_framework.settings import api_settings
@@ -86,7 +89,13 @@ class UserLoginApiView(ObtainAuthToken):
             })
     
       
-    
+class APIChangePasswordView(UpdateAPIView):
+    serializer_class = UserPasswordChangeSerializer
+    model = get_user_model() # your user model
+    permission_classes = (IsAuthenticated,)
+
+    def get_object(self, queryset=None):
+        return self.request.user    
     
 
 
