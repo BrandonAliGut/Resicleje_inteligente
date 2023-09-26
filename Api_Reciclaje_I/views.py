@@ -26,6 +26,8 @@ class Category_Api(APIView):
         items = Category.objects.all()
         serializer = SerializerCategoria(items, many=True)
         
+        from django.contrib.auth.models import Group
+        
         return Response(serializer.data)
     
     

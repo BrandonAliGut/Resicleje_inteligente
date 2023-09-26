@@ -80,7 +80,7 @@ class UserLoginApiView(ObtainAuthToken):
                 'email':user.email,
                 'name': user.name,
                 'lastname':user.lastname,
-                'groups': roll_json
+                'roles': roll_json
                 },
             'token': token.key
             })
