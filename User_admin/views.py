@@ -111,6 +111,7 @@ from django.http import JsonResponse
 from django.db import transaction
 
 
+
 @api_view(['GET'])
 @authentication_classes(( TokenAuthentication,))
 @permission_classes((IsAuthenticated,))
@@ -128,7 +129,8 @@ def refresh_token(request, format=None):
     except: 
         response = {
          "error": "Unable to refresh key. Please try again."
-        } 
+        }
+        
     return JsonResponse(response)
 
 
