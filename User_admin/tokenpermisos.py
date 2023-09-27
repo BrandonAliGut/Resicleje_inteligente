@@ -51,12 +51,6 @@ class ObtainAuthToken(APIView):
         kwargs['context'] = self.get_serializer_context()
         return self.serializer_class(*args, **kwargs)
 
-    def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['email']
-        token, created = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key})
 
 
 obtain_auth_token = ObtainAuthToken.as_view()

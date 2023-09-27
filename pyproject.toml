@@ -17,5 +17,6 @@ dj-database-url = "^2.1.0"
 psycopg2 = "^2.9.7"
 drf-extra-fields = "^3.7.0"
 pillow = "^10.0.1"
+djangorestframework-simplejwt = "^5.3.0"
 
 

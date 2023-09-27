@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import status, filters
-from rest_framework import viewsets
+from rest_framework.viewsets import GenericViewSet
 
 from .models import User_models
 from rest_framework.generics import UpdateAPIView
@@ -21,14 +21,15 @@ from django.contrib.auth import authenticate, login
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate,login
-
+from rest_framework import generics, mixins, views
 
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication,TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 from rest_framework.views import APIView
 
-class UserViewset(viewsets.ModelViewSet):
+class UserViewset(mixins.CreateModelMixin,GenericViewSet):
     serializer_class = User_serializar
     queryset = User_models.objects.all()
     authentication_classes = (TokenAuthentication, )
@@ -62,8 +63,13 @@ class UserLoginApiView(ObtainAuthToken):
         
         
         usermodel = User_models.objects.get(pk = user.pk)
-
-        token, created = Token.objects.get_or_create(user=usermodel)
+        old_token = Token.objects.get(user=usermodel) 
+        if old_token:
+            old_token.delete()
+            token, created = Token.objects.get_or_create(user=request.user)
+        else:
+            token, created = Token.objects.get_or_create(user=usermodel)
+            
         user_autheticated = authenticate(request,username=user, password=password)
         if user is not None:
             login(request, user_autheticated)
@@ -97,6 +103,33 @@ class APIChangePasswordView(UpdateAPIView):
     def get_object(self, queryset=None):
         return self.request.user    
     
+
+from django.shortcuts import render
+from rest_framework.authtoken.models import Token
+from django.utils.dateformat import format
+from django.http import JsonResponse
+from django.db import transaction
+
+
+@api_view(['GET'])
+@authentication_classes(( TokenAuthentication,))
+@permission_classes((IsAuthenticated,))
+def refresh_token(request, format=None):
+    print(request.user)
+    old_token = Token.objects.get(user=request.user) 
+    try: 
+        with transaction.atomic():
+            old_token.delete()
+            token, created = Token.objects.get_or_create(user=request.user)
+            response = {
+            "new_token": token.key,
+            "creation_date": str(token.created)
+            }
+    except: 
+        response = {
+         "error": "Unable to refresh key. Please try again."
+        } 
+    return JsonResponse(response)
 
 
 
