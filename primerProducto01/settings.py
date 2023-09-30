@@ -107,6 +107,23 @@ WSGI_APPLICATION = 'primerProducto01.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'PosgresFacil',
+        'USER': 'postgres',
+        'PASSWORD':'123',
+        'HOST':'localhost',
+        'PORT':''
+        
+    }
+    
+}
+
+"""
+
+
 
 DATABASES = {
     'default': {
@@ -116,11 +133,14 @@ DATABASES = {
 }
 
 
-
-
 import dj_database_url
-database_url =  "postgres://default:jW5U6CwQElTN@ep-twilight-glitter-44121796.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+database_url =  "postgres://default:qhy4P3IDebUX@ep-spring-hall-28632451.us-east-1.postgres.vercel-storage.com:5432/verceldb"
 DATABASES['default'] = dj_database_url.parse(database_url)
+
+
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

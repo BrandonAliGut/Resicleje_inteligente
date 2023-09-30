@@ -63,12 +63,17 @@ class UserLoginApiView(ObtainAuthToken):
         
         
         usermodel = User_models.objects.get(pk = user.pk)
-        old_token = Token.objects.get(user=usermodel) 
-        if old_token:
-            old_token.delete()
-            token, created = Token.objects.get_or_create(user=request.user)
-        else:
+        try:
+            old_token = Token.objects.get(user=usermodel) 
+            if old_token:
+                old_token.delete()
+                token, created = Token.objects.get_or_create(user=request.user)
+            else:
+                token, created = Token.objects.get_or_create(user=usermodel)
+                
+        except:
             token, created = Token.objects.get_or_create(user=usermodel)
+        
             
         user_autheticated = authenticate(request,username=user, password=password)
         if user is not None:
