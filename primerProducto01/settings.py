@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'User_admin',
     'Api_Reciclaje_I',
     'Frontend_resiclaje',
+    'logs',
 ]
 
 MIDDLEWARE = [

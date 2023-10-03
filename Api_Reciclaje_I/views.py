@@ -6,14 +6,30 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from django.views.decorators.csrf import requires_csrf_token
 
-
-
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.mixins import PermissionRequiredMixin
 #Importaciones para vistas basadas en clases
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from .models import Category
 from .serializers import SerializerCategoria
+
+def check_permissions_roll(self, request, permissionuseroll):
+        """
+        Check if the request should be permitted.
+        Raises an appropriate exception if the request is not permitted.
+        """
+        if not request.user.is_admin:
+            if not permissionuseroll in request.user.get_group_permissions() :
+                self.permission_denied(
+                    request,
+                    message=getattr(permissionuseroll, 'message', None),
+                    code=getattr(permissionuseroll, 'code', None)
+                )
+                return False
+            return False
+        
 
 
 
@@ -26,7 +42,7 @@ class Category_Api(APIView):
         items = Category.objects.all()
         serializer = SerializerCategoria(items, many=True)
         
-        from django.contrib.auth.models import Group
+        
         
         return Response(serializer.data)
     
@@ -44,27 +60,12 @@ class Category_Api(APIView):
         
         serializer = SerializerCategoria(data=post_data)
         serializer.is_valid(raise_exception=True)
-        permisos = self.check_permissions_roll(request, 'Api_Reciclaje_I.add_category' )
+        permisos = check_permissions_roll(self, request, 'Api_Reciclaje_I.add_category' )
         if permisos:
             serializer.save()
             
         return Response(serializer.data, status=status.HTTP_201_CREATED)
         
-    def check_permissions_roll(self, request, permissionuseroll):
-        """
-        Check if the request should be permitted.
-        Raises an appropriate exception if the request is not permitted.
-        """
-        if not request.user.is_admin:
-            if not permissionuseroll in request.user.get_group_permissions() :
-                self.permission_denied(
-                    request,
-                    message=getattr(permissionuseroll, 'message', None),
-                    code=getattr(permissionuseroll, 'code', None)
-                )
-                return False
-            return False
-        return True
     
         
         
@@ -73,22 +74,28 @@ class Category_Api(APIView):
 from django.shortcuts import render
 
 
-
+@permission_required("polls.add_choice",'listCategory')
 @api_view(["GET", 'PUT', "DELETE"])
-@requires_csrf_token
 def categoria_detail(request, pk):
-    print(request.user.get_group_permissions())
+    
+    print(a for a in request.user.get_group_permissions())
+
+    
     try:
         model  = Category.objects.get(pk=pk)
     except Category.DoesNotExist:
         return Response(status = status.HTTP_204_NO_CONTENT)
     
     if request.method =='GET':
+        
         serializers = SerializerCategoria(model)
+        
         return Response(serializers.data)
     
     elif request.method == "PUT":
         serializers = SerializerCategoria(model, data=request.data)
+      
+        
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data)

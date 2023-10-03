@@ -1,20 +1,23 @@
 from rest_framework import serializers
+from rest_framework.serializers import Serializer
+
 from .models import User_models
 from django.contrib.auth.models import Group
+
 from django.contrib.auth import authenticate, login
 import django.contrib.auth.password_validation as validators
 from django.utils.translation import gettext_lazy as _
-
-from rest_framework import serializers
-
 from django.core import exceptions
 
 
+
 class User_serializar(serializers.ModelSerializer):
+    
     class Meta: 
-        model = User_models
         
+        model = User_models
         fields = ('id', "email",  "name","lastname", 'password')
+        
         extra_kwargs = {
         
             'password':{
@@ -79,10 +82,6 @@ class User_serializar(serializers.ModelSerializer):
         return super().update(instance, validated_data)
     
 
-
-
-
-
 class AuthTokenSerializer(serializers.Serializer):
     email = serializers.CharField(
         label=_("email"),
@@ -120,10 +119,6 @@ class AuthTokenSerializer(serializers.Serializer):
 
         attrs['user'] = user
         return attrs
-
-
-from rest_framework import serializers
-from rest_framework.serializers import Serializer
 
 
 class UserPasswordChangeSerializer(Serializer):

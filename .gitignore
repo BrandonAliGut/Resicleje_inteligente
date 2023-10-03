@@ -2,3 +2,5 @@
 db.sqlite3
 poetry.lock
 README.md
+control_cambio.text
+json.json

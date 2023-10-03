@@ -6,7 +6,7 @@ from rest_framework.routers import DefaultRouter
 router.register('api/Category', Category_Api, 'Category')"""
 
 urlpatterns = [
-    path('api/categories', Category_Api.as_view()),
+    path('api/categories', Category_Api.as_view(), name="listCategory"),
     path('api/categories/<int:pk>', categoria_detail, name="update_del_category"), 
     
     
