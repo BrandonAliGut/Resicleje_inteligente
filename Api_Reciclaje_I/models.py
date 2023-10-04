@@ -23,7 +23,7 @@ class Category(models.Model):
 def log_catgory_funtion(sender, **kwargs):
     category = kwargs['instance']
     print(kwargs)
-    if kwargs["created"]:
+    if kwargs["created"] == True:
         log_catgory = Log_categorias(
             img = category.img,      
             information = category.information  , 
@@ -33,8 +33,8 @@ def log_catgory_funtion(sender, **kwargs):
             name   =  category.name   ,    
             request_method='Post',
         )
-        log_catgory.save
-    elif kwargs["created"] == False:
+        log_catgory.save()
+    if kwargs["created"] == False:
         log_catgory = Log_categorias(
         img = category.img,      
         information = category.information  , 

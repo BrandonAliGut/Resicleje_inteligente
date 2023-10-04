@@ -6,7 +6,7 @@ import datetime
 # Create your models here.
 class Log_categorias(models.Model):
     
-    img             = models.URLField( blank=True,editable=False)
+    img             = models.URLField( null= True, blank=True,editable=False)
     information     = models.TextField(editable=False)
     description     = models.TextField(blank=False)
     created_at      = models.DateField( auto_now_add=True, editable=False)
