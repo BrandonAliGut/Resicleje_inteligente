@@ -5,20 +5,21 @@ import datetime
 
 # Create your models here.
 class Log_categorias(models.Model):
-
+    
     img             = models.URLField( blank=True,editable=False)
     information     = models.TextField(editable=False)
     description     = models.CharField(max_length=50, blank=False,editable=False)
     created_at      = models.DateField( auto_now_add=True, editable=False)
-    update_at       = models.DateField(default=datetime.datetime.now(), editable=False)
+    updated_at       = models.DateField(default=datetime.datetime.now(), editable=False)
     name            = models.CharField(max_length=50, blank=False, editable=False)
     request_method  = models.CharField(max_length=50, blank=False,editable=False)
     pass
     def save_categories(self):
         pass
     
+"""    
 class Historial_Log_Actions_grupos():
-    """
+    
     name_group      = models.CharField(max_length=50, blank=False)
     user            = models.CharField(max_length=50, blank=False)
     address_ip      = models.CharField(max_length=50, blank=False)
@@ -28,11 +29,11 @@ class Historial_Log_Actions_grupos():
     is_staf         = models.CharField(max_length=50, blank=False)
     created_at      = models.DateField( auto_now_add=True, editable=False)
     update_at       = models.DateField(default=datetime.datetime.now(), editable=False)
-    """   
+       
     pass
     
 class Historial_Log_Actions_user():
-    """
+    ""
     user            = models.CharField(max_length=50, blank=False)
     address_ip      = models.CharField(max_length=50, blank=False)
     request_method  = models.CharField(max_length=50, blank=False)
@@ -41,11 +42,12 @@ class Historial_Log_Actions_user():
     created_at      = models.DateField( auto_now_add=True, editable=False)
     update_at       = models.CharField(max_length=50, blank=False)
     grupo           = models.CharField(max_length=50, blank=False)
-    """
+    ""
     pass
 
 class Historial_Log_Actions_user():
-    """user         = models.CharField(max_length=50, blank=False)
+    ""
+    user         = models.CharField(max_length=50, blank=False)
     user_validated  = models.CharField(max_length=50, blank=False)
     address_ip      = models.CharField(max_length=50, blank=False)
     password_old    = models.CharField(max_length=50, blank=False)
@@ -53,11 +55,11 @@ class Historial_Log_Actions_user():
     request_method  = models.CharField(max_length=50, blank=False)
     created_at      = models.DateField( auto_now_add=True, editable=False)
     update_at       = models.CharField(max_length=50, blank=False)
-    """
+    ""
     pass
 
 class Historial_Log_Actions(models.Model):
-    """
+    ""
     user                = models.CharField(max_length=50, blank=False)
     address_ip          = models.CharField(max_length=50, blank=False)
     Affected_tables     = models.CharField(max_length=50, blank=False)
@@ -70,13 +72,13 @@ class Historial_Log_Actions(models.Model):
     is_admin            = models.CharField(max_length=50, blank=False)
     is_staf             = models.CharField(max_length=50, blank=False)
     
-    """
+    ""
     pass
     def capturer():
         pass
     
 class Session_log(models.Model):
-    """
+    ""
     user            = models.CharField(max_length=50, blank=False)
     address_ip      = models.CharField(max_length=50, blank=False)
     time_token      = models.CharField(max_length=50, blank=False)
@@ -86,15 +88,16 @@ class Session_log(models.Model):
     status          = models.CharField(max_length=50, blank=False)
     error_sms       = models.CharField(max_length=50, blank=False)
     
-    """
+    ""
     pass
 
 class access_violation(models.Model):
-    """
+    ""
     user            = models.CharField(max_length=50, blank=False)
     address_ip      = models.CharField(max_length=50, blank=False)
     created_at      = models.DateField( auto_now_add=True, editable=False)
     affected_table  = models.CharField(max_length=50, blank=False)
     
-    """
+    ""
     pass
+"""
