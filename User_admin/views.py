@@ -89,7 +89,7 @@ class UserLoginApiView(ObtainAuthToken):
                 'name': user.name,
                 'lastname':user.lastname,
                 'created_at':user.created_at,
-                'update_at':user.update_at,
+                'updated_at':user.update_at,
                 'roles': roll_json,
                 },
             'token': token.key
@@ -138,7 +138,7 @@ def refresh_token(request, format=None):
             'name': user.name,
             'lastname':user.lastname,
             'created_at':user.created_at,
-            'update_at':user.update_at,
+            'updated_at':user.update_at,
             'roles': roll_json,
             },
         "new_token": token.key,
