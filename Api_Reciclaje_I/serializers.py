@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+from logs.models import Log_categorias
 from drf_extra_fields.fields import Base64ImageField
 
 class SerializerCategoria(serializers.ModelSerializer):
@@ -10,6 +11,7 @@ class SerializerCategoria(serializers.ModelSerializer):
         
     def update(self, instance, validated_data):
         img = validated_data.get('img')
+        
         if img and img != "":
             instance.img        = validated_data.get('img', instance.img)
         
@@ -17,7 +19,6 @@ class SerializerCategoria(serializers.ModelSerializer):
         instance.information    = validated_data.get('information', instance.information)
         instance.updated_at      = validated_data.get('updated_at', instance.updated_at)
         instance.created_at     = validated_data.get('updated_at', instance.created_at)
-
         instance.save()
         
         return instance

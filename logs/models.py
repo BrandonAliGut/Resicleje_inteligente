@@ -8,12 +8,18 @@ class Log_categorias(models.Model):
     
     img             = models.URLField( blank=True,editable=False)
     information     = models.TextField(editable=False)
-    description     = models.CharField(max_length=50, blank=False,editable=False)
+    description     = models.TextField(blank=False)
     created_at      = models.DateField( auto_now_add=True, editable=False)
     updated_at       = models.DateField(default=datetime.datetime.now(), editable=False)
     name            = models.CharField(max_length=50, blank=False, editable=False)
     request_method  = models.CharField(max_length=50, blank=False,editable=False)
-    pass
+    
+    def delete(self, using=None, keep_parents=False):
+        pass
+    
+    def __str__(self) :
+        infor = " {} - {} ___ {} - {}".format(self.name,  self.request_method, self.created_at, self.updated_at)
+        return infor
     def save_categories(self):
         pass
     
