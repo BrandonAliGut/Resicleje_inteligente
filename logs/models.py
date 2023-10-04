@@ -1,10 +1,11 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 from User_admin.models import User_models
+import datetime
 
 # Create your models here.
 class Log_categorias(models.Model):
-    """
+
     img             = models.URLField( blank=True,editable=False)
     information     = models.TextField(editable=False)
     description     = models.CharField(max_length=50, blank=False,editable=False)
@@ -12,7 +13,6 @@ class Log_categorias(models.Model):
     update_at       = models.DateField(default=datetime.datetime.now(), editable=False)
     name            = models.CharField(max_length=50, blank=False, editable=False)
     request_method  = models.CharField(max_length=50, blank=False,editable=False)
-    """
     pass
     def save_categories(self):
         pass
