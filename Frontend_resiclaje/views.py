@@ -12,6 +12,13 @@ def home(request):
         
     }
     return HttpResponse(template.render(context, request))
+
+def acerca_de(request):
+    template = loader.get_template('Acerca.html')
+    context= {
+        
+    }
+    return HttpResponse(template.render(context, request))
     
 
 
