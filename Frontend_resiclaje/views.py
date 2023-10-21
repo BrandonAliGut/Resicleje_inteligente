@@ -19,6 +19,34 @@ def acerca_de(request):
         
     }
     return HttpResponse(template.render(context, request))
+
+def papel(request):
+    template = loader.get_template('Papel.html')
+    context= {
+        
+    }
+    return HttpResponse(template.render(context, request))
+
+def metales(request):
+    template = loader.get_template('Metales.html')
+    context= {
+        
+    }
+    return HttpResponse(template.render(context, request))
+
+def plastico(request):
+    template = loader.get_template('Plastico.html')
+    context= {
+        
+    }
+    return HttpResponse(template.render(context, request))
+def vidrio(request):
+    template = loader.get_template('Vidrio.html')
+    context= {
+        
+    }
+    return HttpResponse(template.render(context, request))
+    
     
 
 

@@ -41,7 +41,7 @@
               </div>
               <div class=" w-100 inline-group navbar-nav  justify-content-end ">
                 <div class="nav-item ">
-                  <a class="nav-link active" aria-current="page" href="#" _msttexthash="59059" _msthash="8">Inicio</a>
+                  <a class="nav-link active" aria-current="page" href="{% url 'home' %}" _msttexthash="59059" _msthash="8">Inicio</a>
                 </div>
                 <div class="nav-item ">
                   <a class="nav-link " href="{% url 'acerca_de' %}" _msttexthash="72878" _msthash="9">Acerca de</a>
@@ -56,10 +56,11 @@
                     Reciclables
                   </a>
                   <ul class="dropdown-menu color_green">
-                    <li><a class="dropdown-item text-white" href="papel.html">Papel</a></li>
-                    <li><a class="dropdown-item text-white" href="plastico.html">Plástico</a></li>
-                    <li><a class="dropdown-item text-white" href="vidrio.html">Vidrio</a></li>
-                    <li><a class="dropdown-item text-white" href="metales.html">Metales</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'papel' %}">Papel</a></li>
+
+                    <li><a class="dropdown-item text-white" href="{% url 'plastico' %}">Plástico</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'vidrio' %}">Vidrio</a></li>
+                    <li><a class="dropdown-item text-white" href="{% url 'metales' %}">Metales</a></li>
                     
                   </ul>
                 </li>
