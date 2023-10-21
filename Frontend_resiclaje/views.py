@@ -6,6 +6,17 @@ from Api_Reciclaje_I.models import Category
 # Create your views here.
 from django.utils import timezone
 
+def home(request):
+    template = loader.get_template('Index.html')
+    context= {
+        
+    }
+    return HttpResponse(template.render(context, request))
+    
+
+
+
+
 def categoryView(request):
     template = loader.get_template('HomeIndex.html')
    

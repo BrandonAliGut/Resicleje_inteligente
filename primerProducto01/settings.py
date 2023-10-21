@@ -133,6 +133,9 @@ DATABASES = {
     }
 }
 
+
+
+
 import dj_database_url
 database_url ="postgres://default:qhy4P3IDebUX@ep-spring-hall-28632451.us-east-1.postgres.vercel-storage.com:5432/verceldb"  
 DATABASES['default'] = dj_database_url.parse(database_url)

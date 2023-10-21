@@ -3,6 +3,7 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path("", categoryView)
+    path("", home, name="home"),
+    path("category", categoryView)
 
 ]
